@@ -1,4 +1,4 @@
-#include"home/inxs/proj/header/he.h"
+#include"he.h"
 void push(char *w,int len,int coun);
 int search(char *w,int len);
 
@@ -20,7 +20,7 @@ int main()
 			o=search(c1,len);
 			if(o==-1)
 			{
-				FILE *f=fopen("sample.txt","r");
+				FILE *f=fopen("/home/inxs/proj/sample.txt","r");
 				fscanf(f,"%s",c2);
 				while(!feof(f))
 				{
