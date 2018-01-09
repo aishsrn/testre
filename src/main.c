@@ -1,4 +1,4 @@
-#include"he.h"
+#include"home/inxs/proj/header/he.h"
 void push(char *w,int len,int coun);
 int search(char *w,int len);
 

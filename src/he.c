@@ -1,4 +1,4 @@
-#include"he.h"
+#include"home/inxs/proj/header/he.h"
 struct li 
 {char c[50];
  int co;
