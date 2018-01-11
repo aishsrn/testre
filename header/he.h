@@ -5,3 +5,5 @@ void push(char *w,int len,int coun);
 int search(char *w,int len);
 void *ficount();
 
+
+
