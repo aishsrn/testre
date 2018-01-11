@@ -2,27 +2,27 @@
 #include"he.h"
 struct li 
 {char c[50];
- int co;
+ long int co;
  struct li *next;}*front,*rear,*l;
 pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
 
 
-void push(char *w,int len,int coun)
+void push(char *w,int len,long int coun)
 {
 	int i;
-	struct li *x=(struct li*)malloc (sizeof(struct li));
-	for(i=0;i<len;i++) x->c[i]=w[i];
-	x->co=coun;
-	x->next=NULL;
+	struct li x;
+	for(i=0;i<len;i++) x.c[i]=w[i];
+	x.co=coun;
+	x.next=NULL;
 	if(front==NULL)
 	{
-		front=rear=x;
+		front=rear=&x;
 		
 	}
 	else
 	{
-		front->next=x;
-		front=x;
+		front->next=&x;
+		front=&x;
 	}
 }
 int search(char *w,int len)
@@ -42,13 +42,13 @@ int search(char *w,int len)
 
 void *ficount(char *c1)
 {
-	int count=0,o,len,i;
+	long int count=0,o,len,i;
 	char c2[50];
 	for(len=0;c1[len];len++);
-	o=search(c1,len);
-	if(o==-1)
-	{
-		FILE *f=fopen("/home/inxs/proj/sample.txt","r");
+	
+	
+	
+		FILE *f=fopen("/home/inxs/proj/sample2.txt","r");
 		fscanf(f,"%s",c2);
 		while(!feof(f))
 		{
@@ -59,11 +59,11 @@ void *ficount(char *c1)
 		}
 		fclose(f);
 		pthread_mutex_lock(&mutex);
-		push(c1,len,count);
+		
 		pthread_mutex_unlock(&mutex);
-		printf("\nWord: %s\tCount:%d",c1,count);
-		}
-		else printf("\nWord: %s\tCount:%d",c1,o);
+		printf("\nWord: %s\tCount:%ld",c1,count);
+		
+		
 }
 
 

@@ -1,5 +1,5 @@
 #include"he.h"
-void push(char *w,int len,int coun);
+void push(char *w,int len,long int coun);
 int search(char *w,int len);
 void *ficount(char* c1);
 
@@ -18,7 +18,7 @@ int main()
 	}
 	for(h=0;h<n;h++)
 	{				
-		pthread_create(&tid[h],NULL,ficount,(void *)c1[h]);
+		pthread_create(&tid[h],NULL,ficount,c1[h]);
 			
 	}
 	pthread_join(tid[n-1],NULL);
