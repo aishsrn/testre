@@ -4,6 +4,7 @@ struct li
 {char c[50];
  int co;
  struct li *next;}*front,*rear,*l;
+pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
 
 
 void push(char *w,int len,int coun)
@@ -39,14 +40,10 @@ int search(char *w,int len)
 	return -1;
 }
 
-void *ficount()
+void *ficount(char *c1)
 {
 	int count=0,o,len,i;
-	char c2[50],c1[50];
-	pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
-	
-	printf("\nEnter word to be searched:");
-	scanf("%s",c1);
+	char c2[50];
 	for(len=0;c1[len];len++);
 	o=search(c1,len);
 	if(o==-1)
